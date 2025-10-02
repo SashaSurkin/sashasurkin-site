@@ -8,7 +8,7 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 px-4 items-center">
+      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 px-4 items-center justify-center">
         <a
           href="mailto:sasha@w-eye-ze.com"
           className="px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base text-black rounded-lg hover:bg-black hover:text-white transition"
