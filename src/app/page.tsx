@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <main className="flex flex-col items-center justify-center min-h-screen p-8 font-sans bg-white text-black">
-      <h1 className="text-5xl font-bold mb-6" style={{ fontFamily: 'Epoch, sans-serif' }}>Who is Sasha?</h1>
+      <h1 className="text-5xl font-bold mb-6" style={{ fontFamily: 'Epoch, sans-serif' }}>W h o is S a s h a?</h1>
       <p className="text-lg text-center max-w-xl mb-10">
         She exists at the intersection of engineering and business, and made her first invention at 6 years old.
       </p>
@@ -11,7 +11,7 @@ export default function Home() {
           href="mailto:sasha@w-eye-ze.com"
           className="px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition"
         >
-          Contact Me
+          the mail one
         </a>
         <a
           href="https://x.com/sashasurk"
@@ -19,7 +19,7 @@ export default function Home() {
           rel="noopener noreferrer"
           className="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-100 transition"
         >
-          Twitter/X
+          the bird one
         </a>
         <a
           href="https://www.linkedin.com/in/janiesashasurkin"
@@ -27,7 +27,7 @@ export default function Home() {
           rel="noopener noreferrer"
           className="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-100 transition"
         >
-          LinkedIn
+          the professional one
         </a>
         <a
           href="https://github.com/sashasurkin"
@@ -35,7 +35,7 @@ export default function Home() {
           rel="noopener noreferrer"
           className="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-100 transition"
         >
-          GitHub
+          the project one
         </a>
       </div>
     </main>
