@@ -1,11 +1,9 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
     <main className="flex flex-col items-center justify-center min-h-screen p-8 font-sans bg-white text-black">
-      <h1 className="text-5xl font-boldmb-6">hi! i'm sasha. hello</h1>
+      <h1 className="text-5xl font-bold mb-6">Hi! My name is Sasha. Hello</h1>
       <p className="text-lg text-center max-w-xl mb-10">
-       I am an inventor, existing at the intersection of engineering and business. 
+        I am an inventor, existing at the intersection of engineering and business.
       </p>
 
       <div className="flex flex-col sm:flex-row gap-4">
