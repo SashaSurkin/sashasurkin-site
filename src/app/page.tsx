@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <main className="flex flex-col items-center justify-center min-h-screen p-8 font-sans bg-white text-black">
-      <h1 className="text-5xl font-bold mb-6" style={{ fontFamily: 'Epoch, sans-serif' }}>W h o is S a s h a?</h1>
+      <h1 className="text-5xl font-bold mb-6" style={{ fontFamily: 'Epoch, sans-serif' }}>Who is Sasha?</h1>
       <p className="text-lg text-center max-w-xl mb-10">
         She exists at the intersection of engineering and business, and made her first invention at 6 years old.
       </p>
@@ -17,7 +17,7 @@ export default function Home() {
           href="https://x.com/sashasurk"
           target="_blank"
           rel="noopener noreferrer"
-          className="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-100 transition"
+          className="px-6 py-3 text-black rounded-lg hover:bg-black hover:text-white transition"
         >
           the bird one
         </a>
@@ -25,7 +25,7 @@ export default function Home() {
           href="https://www.linkedin.com/in/janiesashasurkin"
           target="_blank"
           rel="noopener noreferrer"
-          className="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-100 transition"
+          className="px-6 py-3 text-black rounded-lg hover:bg-black hover:text-white transition"
         >
           the professional one
         </a>
@@ -33,7 +33,7 @@ export default function Home() {
           href="https://github.com/sashasurkin"
           target="_blank"
           rel="noopener noreferrer"
-          className="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-100 transition"
+          className="px-6 py-3 text-black rounded-lg hover:bg-black hover:text-white transition"
         >
           the project one
         </a>
