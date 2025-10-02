@@ -3,9 +3,9 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main className="flex flex-col items-center justify-center min-h-screen p-8 font-sans bg-white text-black">
-      <h1 className="text-5xl font-bold mb-6">Sasha Surkin</h1>
+      <h1 className="text-5xl mb-6">hi! i'm sasha.</h1>
       <p className="text-lg text-center max-w-xl mb-10">
-        I build weird, useful things, from AI finance tools to self-correcting eyeglasses.
+       很高興認識你。
       </p>
 
       <div className="flex flex-col sm:flex-row gap-4">
