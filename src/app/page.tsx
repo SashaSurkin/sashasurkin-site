@@ -1,9 +1,9 @@
 export default function Home() {
   return (
     <main className="flex flex-col items-center justify-center min-h-screen p-8 font-sans bg-white text-black">
-      <h1 className="text-5xl font-bold mb-6">Hi! My name is Sasha. Hello</h1>
+      <h1 className="text-5xl font-bold mb-6" style={{ fontFamily: 'Epoch, sans-serif' }}>Hi! My name is Sasha.</h1>
       <p className="text-lg text-center max-w-xl mb-10">
-        I am an inventor, existing at the intersection of engineering and business.
+        I exist at the intersection of engineering and business. I made my first invention at 6 years old.
       </p>
 
       <div className="flex flex-col sm:flex-row gap-4">
