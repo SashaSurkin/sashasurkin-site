@@ -11,7 +11,7 @@ export default function Home() {
       <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 px-4">
         <a
           href="mailto:sasha@w-eye-ze.com"
-          className="px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base text-black rounded-lg hover:bg-black hover:text-white transition text-center"
+          className="px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base text-black rounded-lg hover:bg-black hover:text-white transition"
         >
           the mail one
         </a>
@@ -19,7 +19,7 @@ export default function Home() {
           href="https://x.com/sashasurk"
           target="_blank"
           rel="noopener noreferrer"
-          className="px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base text-black rounded-lg hover:bg-black hover:text-white transition text-center"
+          className="px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base text-black rounded-lg hover:bg-black hover:text-white transition"
         >
           the bird one
         </a>
@@ -27,7 +27,7 @@ export default function Home() {
           href="https://www.linkedin.com/in/janiesashasurkin"
           target="_blank"
           rel="noopener noreferrer"
-          className="px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base text-black rounded-lg hover:bg-black hover:text-white transition text-center"
+          className="px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base text-black rounded-lg hover:bg-black hover:text-white transition"
         >
           the professional one
         </a>
@@ -35,7 +35,7 @@ export default function Home() {
           href="https://github.com/sashasurkin"
           target="_blank"
           rel="noopener noreferrer"
-          className="px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base text-black rounded-lg hover:bg-black hover:text-white transition text-center"
+          className="px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base text-black rounded-lg hover:bg-black hover:text-white transition"
         >
           the project one
         </a>
