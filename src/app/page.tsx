@@ -160,20 +160,20 @@ export default function Home() {
         <p className={sectionLabel}>Off the clock</p>
         <p className={bodyText}>
           I play chess, poker, and mahjong weekly, and bridge anytime I can
-          find 3 people to play with. My two brilliant siblings are studying
+          find a game. My two brilliant siblings are studying
           neuroprothetics and cyberlaw. I&apos;m fluent in Mandarin, get the
           WSJ delivered and read it on paper, and am rather obsessive about my
           coffee morning routine.
         </p>
       </section>
 
-      <section className="max-w-[500px] text-left">
+      <section className="max-w-[500px] text-left xl:hidden">
         <p className={sectionLabel}>Why Pantone?</p>
         <p className={bodyText}>
-          I recently watched <em>King of Color</em> and walked away inspired by
-          the creativity and courage it takes to build something the world
-          didn&apos;t know it needed. This page is a small tribute, pick a year
-          above and stand in its color. And check out my{" "}
+          I recently watched <em>The King of Color</em> and walked away
+          inspired by the creativity and courage it takes to build something
+          the world didn&apos;t know it needed. This page is a small tribute,
+          pick a year above and stand in its color. And check out my{" "}
           <a
             href="https://boxd.it/gKiZj"
             target="_blank"
@@ -185,6 +185,33 @@ export default function Home() {
           .
         </p>
       </section>
+
+      <aside
+        className="fixed right-8 top-1/2 hidden -translate-y-1/2 xl:block"
+        style={{ writingMode: "vertical-rl", maxHeight: "80vh" }}
+      >
+        <p
+          className="font-sans text-[13px] font-medium uppercase tracking-[0.08em] opacity-80"
+          style={{ marginBlockEnd: "0.75rem" }}
+        >
+          Why Pantone?
+        </p>
+        <p className={`${bodyText} max-w-none`}>
+          I recently watched <em>The King of Color</em> and walked away
+          inspired by the creativity and courage it takes to build something
+          the world didn&apos;t know it needed. This page is a small tribute,
+          pick a year above and stand in its color. And check out my{" "}
+          <a
+            href="https://boxd.it/gKiZj"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border-b border-current"
+          >
+            letterboxd
+          </a>
+          .
+        </p>
+      </aside>
 
       <footer className="font-sans mt-auto flex justify-center gap-5 pb-2 pt-16 text-sm">
         <a
