@@ -8,6 +8,7 @@ import {
   backgroundFor,
   swatchLabel,
   textColorFor,
+  type PantoneColor,
 } from "@/lib/pantone";
 import Sticker from "@/components/Sticker";
 import {
@@ -38,14 +39,63 @@ function ExtLink({ href, children }: { href: string; children: React.ReactNode }
   );
 }
 
+function ChipStory({
+  colors,
+  onClose,
+}: {
+  colors: PantoneColor[];
+  onClose: () => void;
+}) {
+  return (
+    <div className="relative flex-1 overflow-auto px-5 py-4">
+      <button
+        aria-label="Close"
+        onClick={onClose}
+        className="font-sans absolute right-3 top-3 cursor-pointer text-sm opacity-60"
+      >
+        ✕
+      </button>
+      <p className="font-sans text-[13px] font-medium tracking-[0.05em]">
+        PANTONE<sup className="text-[8px]">®</sup>
+      </p>
+      <p className="font-sans text-[13px] opacity-80">
+        {colors.map((c) => c.code).join(" + ")}
+      </p>
+      <p className="font-sans mb-3 text-[14px] font-medium">
+        {colors.map((c) => c.name).join(" + ")}
+      </p>
+      <div className="mb-3 h-px bg-[#2C2C2A]/20" />
+      <p className="font-sans mb-2 text-[11px] font-medium uppercase tracking-[0.1em] opacity-70">
+        Why Pantone?
+      </p>
+      <p className="text-[15px] leading-[1.65] opacity-90">
+        I recently watched <em>The King of Color</em> and walked away inspired
+        by the creativity and courage it takes to build something the world
+        didn&apos;t know it needed. This page is a small tribute, pick a year
+        and stand in its color. And check out my{" "}
+        <a
+          href="https://boxd.it/gKiZj"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="border-b border-current"
+        >
+          letterboxd
+        </a>
+        .
+      </p>
+    </div>
+  );
+}
+
 export default function Home() {
   const [year, setYear] = useState(DEFAULT_YEAR);
+  const [cardOpen, setCardOpen] = useState(false);
   const colors = COLOR_OF_THE_YEAR[year];
   const idx = YEARS.indexOf(year);
 
   return (
     <main
-      className="flex min-h-screen flex-col px-6 pb-8 pt-10 transition-colors duration-500 sm:px-12 sm:pt-12"
+      className="flex min-h-screen flex-col px-6 pb-8 pt-10 transition-colors duration-500 sm:px-12 sm:pt-12 lg:pr-[72px]"
       style={{
         background: backgroundFor(colors),
         color: textColorFor(colors),
@@ -167,50 +217,73 @@ export default function Home() {
         </p>
       </section>
 
-      <section className="max-w-[500px] text-left xl:hidden">
-        <p className={sectionLabel}>Why Pantone?</p>
-        <p className={bodyText}>
-          I recently watched <em>The King of Color</em> and walked away
-          inspired by the creativity and courage it takes to build something
-          the world didn&apos;t know it needed. This page is a small tribute,
-          pick a year above and stand in its color. And check out my{" "}
-          <a
-            href="https://boxd.it/gKiZj"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="border-b border-current"
-          >
-            letterboxd
-          </a>
-          .
-        </p>
-      </section>
+      <button
+        aria-label="Open the Why Pantone story"
+        onClick={() => setCardOpen(true)}
+        className={`font-sans fixed bottom-4 right-4 z-20 flex cursor-pointer items-center gap-2 rounded-full border border-[#2C2C2A]/20 bg-white px-3.5 py-2 text-xs font-medium text-[#2C2C2A] transition-opacity duration-300 lg:hidden ${
+          cardOpen ? "pointer-events-none opacity-0" : "opacity-100"
+        }`}
+      >
+        <span
+          className="h-4 w-4 border border-[#2C2C2A]/15 transition-colors duration-500"
+          style={{ background: backgroundFor(colors) }}
+        />
+        Why Pantone?
+      </button>
+
+      <div
+        aria-hidden="true"
+        onClick={() => setCardOpen(false)}
+        className={`fixed inset-0 z-30 bg-black/30 transition-opacity duration-300 lg:hidden ${
+          cardOpen ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
+      />
 
       <aside
-        className="fixed right-8 top-1/2 hidden -translate-y-1/2 xl:block"
-        style={{ writingMode: "vertical-rl", maxHeight: "80vh" }}
+        className={`fixed inset-x-0 bottom-0 z-40 flex max-h-[80vh] flex-col overflow-hidden rounded-t-2xl border-t border-[#2C2C2A]/25 bg-white text-[#2C2C2A] transition-transform duration-300 lg:hidden ${
+          cardOpen ? "translate-y-0" : "translate-y-full"
+        }`}
       >
-        <p
-          className="font-sans text-[13px] font-medium uppercase tracking-[0.08em] opacity-80"
-          style={{ marginBlockEnd: "0.75rem" }}
+        <div
+          className="h-20 shrink-0 transition-colors duration-500"
+          style={{ background: backgroundFor(colors) }}
+        />
+        <ChipStory colors={colors} onClose={() => setCardOpen(false)} />
+      </aside>
+
+      <button
+        aria-label="Open the Why Pantone story"
+        onClick={() => setCardOpen(true)}
+        className={`fixed inset-y-0 right-0 z-20 hidden w-12 cursor-pointer flex-col items-center border-l border-[#2C2C2A]/20 bg-white py-4 text-[#2C2C2A] transition-transform duration-300 lg:flex ${
+          cardOpen ? "translate-x-full" : "translate-x-0"
+        }`}
+      >
+        <span
+          className="mb-3 h-7 w-7 border border-[#2C2C2A]/15 transition-colors duration-500"
+          style={{ background: backgroundFor(colors) }}
+        />
+        <span
+          className="font-sans flex flex-1 items-center text-[11px] font-medium uppercase tracking-[0.12em]"
+          style={{ writingMode: "vertical-rl" }}
         >
           Why Pantone?
-        </p>
-        <p className={`${bodyText} max-w-none`}>
-          I recently watched <em>The King of Color</em> and walked away
-          inspired by the creativity and courage it takes to build something
-          the world didn&apos;t know it needed. This page is a small tribute,
-          pick a year above and stand in its color. And check out my{" "}
-          <a
-            href="https://boxd.it/gKiZj"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="border-b border-current"
-          >
-            letterboxd
-          </a>
-          .
-        </p>
+          <span className="mt-2 normal-case tracking-[0.06em] opacity-55">
+            PANTONE {colors.map((c) => c.code).join(" + ")}
+          </span>
+        </span>
+        <span className="text-sm opacity-60">+</span>
+      </button>
+
+      <aside
+        className={`fixed inset-y-4 right-0 z-30 hidden w-[300px] flex-col overflow-hidden rounded-l border border-[#2C2C2A]/25 bg-white text-[#2C2C2A] transition-transform duration-300 lg:flex ${
+          cardOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div
+          className="h-[32%] shrink-0 transition-colors duration-500"
+          style={{ background: backgroundFor(colors) }}
+        />
+        <ChipStory colors={colors} onClose={() => setCardOpen(false)} />
       </aside>
 
       <footer className="font-sans mt-auto flex justify-center gap-5 pb-2 pt-16 text-sm">
