@@ -25,21 +25,3 @@ body {
   color: var(--foreground);
   font-family: var(--font-garamond), Garamond, Georgia, serif;
 }
-
-@keyframes chip-peek {
-  0%, 80%, 100% { transform: rotate(-8deg) translateY(0); }
-  86% { transform: rotate(-8deg) translateY(-12px); }
-  92% { transform: rotate(-8deg) translateY(0); }
-}
-
-.chip-peek {
-  animation: chip-peek 6s ease-in-out infinite;
-  transform-origin: bottom center;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .chip-peek {
-    animation: none;
-    transform: rotate(-8deg);
-  }
-}

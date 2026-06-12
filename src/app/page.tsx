@@ -220,23 +220,15 @@ export default function Home() {
       <button
         aria-label="Open the Why Pantone story"
         onClick={() => setCardOpen(true)}
-        className={`chip-peek fixed -bottom-7 right-5 z-20 block h-[102px] w-[78px] cursor-pointer rounded border border-[#2C2C2A]/35 bg-white p-[5px] text-left text-[#2C2C2A] transition-opacity duration-300 lg:hidden ${
+        className={`font-sans fixed right-4 top-4 z-20 flex cursor-pointer items-center gap-2 rounded-full border border-[#2C2C2A]/20 bg-white px-3.5 py-2 text-xs font-medium text-[#2C2C2A] transition-opacity duration-300 lg:hidden ${
           cardOpen ? "pointer-events-none opacity-0" : "opacity-100"
         }`}
       >
         <span
-          className="block h-[46px] w-full border border-[#2C2C2A]/10 transition-colors duration-500"
+          className="h-4 w-4 border border-[#2C2C2A]/15 transition-colors duration-500"
           style={{ background: backgroundFor(colors) }}
         />
-        <span className="font-sans mt-1 block text-[8px] font-medium tracking-[0.04em]">
-          PANTONE<sup className="text-[5px]">®</sup>
-        </span>
-        <span className="font-sans block text-[7.5px] opacity-75">
-          {colors.map((c) => c.code).join(" + ")}
-        </span>
-        <span className="font-sans block text-[8px] font-medium">
-          Why Pantone?
-        </span>
+        Why Pantone?
       </button>
 
       <div
