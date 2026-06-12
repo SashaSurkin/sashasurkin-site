@@ -23,6 +23,20 @@ const sectionLabel =
 const bodyText = "text-[17px] leading-[1.7] opacity-90";
 const pillButton =
   "flex h-[34px] w-[34px] cursor-pointer items-center justify-center rounded-full border border-current bg-transparent";
+const inlineLink = "border-b border-current";
+
+function ExtLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={inlineLink}
+    >
+      {children}
+    </a>
+  );
+}
 
 export default function Home() {
   const [year, setYear] = useState(DEFAULT_YEAR);
@@ -79,22 +93,35 @@ export default function Home() {
 
       <div className={`max-w-[500px] text-left ${bodyText}`}>
         <p className="mb-4">
-          I&apos;m an inventor and founder. I work at Theo Vision building the
-          future of consumer optics.
+          I&apos;m an inventor and founder. I work at{" "}
+          <ExtLink href="https://theovision.co/">Theo Vision</ExtLink> building
+          the future of consumer optics.
         </p>
         <p className="mb-8">
           I&apos;m obsessed with stem cells, Artemis missions, the physics
           behind bumblebee flight, and prime numbers. Currently, I work at Theo
-          Vision while studying AI and materials science at Duke University.
+          Vision while studying{" "}
+          <ExtLink href="https://mems.duke.edu/academics/masters/ai-materials-science-meng/">
+            AI and materials science at Duke University
+          </ExtLink>
+          . I was 1 of 40 finalists for the{" "}
+          <ExtLink href="https://thielfellowship.org/">Thiel Fellowship</ExtLink>
+          , where I discovered the magic of San Francisco.
         </p>
       </div>
 
       <section className="mb-8 max-w-[500px] text-left">
         <p className={sectionLabel}>Foundation</p>
         <p className={`mb-4 ${bodyText}`}>
-          I studied at the #1 public school in the United States, the North
-          Carolina School of Science and Mathematics. I also dual enrolled at
-          Stanford University Online High School.
+          I studied at the #1 public school in the United States, the{" "}
+          <ExtLink href="https://www.ncssm.edu/">
+            North Carolina School of Science and Mathematics
+          </ExtLink>
+          . I also dual enrolled at{" "}
+          <ExtLink href="https://onlinehighschool.stanford.edu/">
+            Stanford University Online High School
+          </ExtLink>
+          .
         </p>
         <p className={`mb-4 ${bodyText}`}>
           So yes, my two high school mascots were the unicorn, and a pixel.
@@ -118,8 +145,13 @@ export default function Home() {
             <GlobeIcon />
           </Sticker>
           <p className={`max-w-[420px] ${bodyText}`}>
-            I&apos;ve lived in San Francisco, Dublin, New York, DC, and am from
-            the same town where Mr Beast is. Pretty nifty.
+            I&apos;ve lived in{" "}
+            <ExtLink href="https://www.livetheresidency.com/">
+              San Francisco
+            </ExtLink>
+            , Dublin,{" "}
+            <ExtLink href="https://www.foundherhouse.org/">New York</ExtLink>,
+            DC, and am from the same town where Mr Beast is. Pretty nifty.
           </p>
         </div>
       </section>
