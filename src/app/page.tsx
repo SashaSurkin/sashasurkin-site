@@ -10,14 +10,7 @@ import {
   textColorFor,
   type PantoneColor,
 } from "@/lib/pantone";
-import Sticker from "@/components/Sticker";
-import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  CompassIcon,
-  GlobeIcon,
-  MapPinIcon,
-} from "@/components/icons";
+import { ChevronLeftIcon, ChevronRightIcon } from "@/components/icons";
 
 const sectionLabel =
   "font-sans text-[13px] font-medium uppercase tracking-[0.08em] opacity-80 mb-3";
@@ -178,32 +171,15 @@ export default function Home() {
           That&apos;s right. One of my high school mascots was a computer
           pixel.
         </p>
-        <div className="relative">
-          <Sticker rotate={-10} opacity={0.75} style={{ top: -16, right: 36 }}>
-            <MapPinIcon />
-          </Sticker>
-          <Sticker
-            rotate={8}
-            shape="circle"
-            size={28}
-            opacity={0.6}
-            style={{ top: 14, right: -2 }}
-          >
-            <CompassIcon />
-          </Sticker>
-          <Sticker rotate={6} style={{ bottom: -14, right: 64 }}>
-            <GlobeIcon />
-          </Sticker>
-          <p className={`max-w-[420px] ${bodyText}`}>
-            I&apos;ve lived in{" "}
-            <ExtLink href="https://www.livetheresidency.com/">
-              San Francisco
-            </ExtLink>
-            , Dublin,{" "}
-            <ExtLink href="https://www.foundherhouse.org/">New York</ExtLink>,
-            DC, and am from the same town where Mr Beast is. Pretty nifty.
-          </p>
-        </div>
+        <p className={`max-w-[420px] ${bodyText}`}>
+          I&apos;ve lived in{" "}
+          <ExtLink href="https://www.livetheresidency.com/">
+            San Francisco
+          </ExtLink>
+          , Dublin,{" "}
+          <ExtLink href="https://www.foundherhouse.org/">New York</ExtLink>,
+          DC, and am from the same town where Mr Beast is. Pretty nifty.
+        </p>
       </section>
 
       <section className="mb-8 max-w-[500px] text-left">
