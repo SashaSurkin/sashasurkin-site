@@ -1,20 +1,24 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { EB_Garamond, Instrument_Sans } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const garamond = EB_Garamond({
+  variable: "--font-garamond",
   subsets: ["latin"],
+  style: ["normal", "italic"],
+  weight: ["400", "500"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const instrument = Instrument_Sans({
+  variable: "--font-instrument",
   subsets: ["latin"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
   title: "Sasha Surkin",
-  description: "futuristic engineer",
+  description:
+    "Inventor and founder, building the future of consumer optics at Theo Vision.",
 };
 
 export default function RootLayout({
@@ -25,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${garamond.variable} ${instrument.variable} antialiased`}
       >
         {children}
       </body>

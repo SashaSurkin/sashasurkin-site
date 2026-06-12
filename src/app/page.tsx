@@ -1,45 +1,182 @@
+"use client";
+
+import { useState } from "react";
+import {
+  COLOR_OF_THE_YEAR,
+  DEFAULT_YEAR,
+  YEARS,
+  backgroundFor,
+  swatchLabel,
+  textColorFor,
+} from "@/lib/pantone";
+import Sticker from "@/components/Sticker";
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  CompassIcon,
+  GlobeIcon,
+  MapPinIcon,
+} from "@/components/icons";
+
+const sectionLabel =
+  "font-sans text-[13px] font-medium uppercase tracking-[0.08em] opacity-80 mb-3";
+const bodyText = "text-[17px] leading-[1.7] opacity-90";
+const pillButton =
+  "flex h-[34px] w-[34px] cursor-pointer items-center justify-center rounded-full border border-current bg-transparent";
+
 export default function Home() {
+  const [year, setYear] = useState(DEFAULT_YEAR);
+  const colors = COLOR_OF_THE_YEAR[year];
+  const idx = YEARS.indexOf(year);
+
   return (
-    <main className="flex flex-col min-h-screen p-4 sm:p-8 font-sans bg-white text-black">
-      <div className="flex-1 flex flex-col items-center justify-center">
-        <h1 className="text-4xl sm:text-5xl font-bold mb-6" style={{ fontFamily: 'Epoch, sans-serif' }}>Who is Sasha?</h1>
-        <p className="text-base sm:text-lg text-center max-w-xl mb-10 px-4">
-          She exists at the intersection of engineering and business, and made her first invention at 6 years old.
+    <main
+      className="flex min-h-screen flex-col px-6 pb-8 pt-10 transition-colors duration-500 sm:px-12 sm:pt-12"
+      style={{
+        background: backgroundFor(colors),
+        color: textColorFor(colors),
+        transition: "background 0.5s ease, color 0.5s ease",
+      }}
+    >
+      <div className="font-sans mb-10 flex flex-wrap items-center gap-2.5">
+        <button
+          aria-label="Previous year"
+          className={pillButton}
+          disabled={idx === YEARS.length - 1}
+          onClick={() => idx < YEARS.length - 1 && setYear(YEARS[idx + 1])}
+        >
+          <ChevronLeftIcon />
+        </button>
+        <select
+          aria-label="Pantone Color of the Year"
+          className="cursor-pointer rounded-full border border-current bg-transparent px-3.5 py-1.5 text-sm"
+          value={year}
+          onChange={(e) => setYear(Number(e.target.value))}
+        >
+          {YEARS.map((y) => (
+            <option key={y} value={y} className="text-black">
+              {y}
+            </option>
+          ))}
+        </select>
+        <button
+          aria-label="Next year"
+          className={pillButton}
+          disabled={idx === 0}
+          onClick={() => idx > 0 && setYear(YEARS[idx - 1])}
+        >
+          <ChevronRightIcon />
+        </button>
+        <span className="ml-2 text-xs tracking-[0.04em] opacity-75">
+          {swatchLabel(colors)}
+        </span>
+      </div>
+
+      <h1 className="mb-5 max-w-[520px] text-left text-[28px] font-medium leading-[1.3] sm:text-[32px]">
+        Hello! I&apos;m Sasha, welcome to my digital home.
+      </h1>
+
+      <div className={`max-w-[500px] text-left ${bodyText}`}>
+        <p className="mb-4">
+          I&apos;m an inventor and founder. I work at Theo Vision building the
+          future of consumer optics.
+        </p>
+        <p className="mb-8">
+          I&apos;m obsessed with stem cells, Artemis missions, the physics
+          behind bumblebee flight, and prime numbers. Currently, I work at Theo
+          Vision while studying AI and materials science at Duke University.
         </p>
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 px-4 items-center justify-center">
+      <section className="mb-8 max-w-[500px] text-left">
+        <p className={sectionLabel}>Foundation</p>
+        <p className={`mb-4 ${bodyText}`}>
+          I studied at the #1 public school in the United States, the North
+          Carolina School of Science and Mathematics. I also dual enrolled at
+          Stanford University Online High School.
+        </p>
+        <p className={`mb-4 ${bodyText}`}>
+          So yes, my two high school mascots were the unicorn, and a pixel.
+          That&apos;s right. One of my high school mascots was a computer
+          pixel.
+        </p>
+        <div className="relative">
+          <Sticker rotate={-10} opacity={0.75} style={{ top: -16, right: 36 }}>
+            <MapPinIcon />
+          </Sticker>
+          <Sticker
+            rotate={8}
+            shape="circle"
+            size={28}
+            opacity={0.6}
+            style={{ top: 14, right: -2 }}
+          >
+            <CompassIcon />
+          </Sticker>
+          <Sticker rotate={6} style={{ bottom: -14, right: 64 }}>
+            <GlobeIcon />
+          </Sticker>
+          <p className={`max-w-[420px] ${bodyText}`}>
+            I&apos;ve lived in San Francisco, Dublin, New York, DC, and am from
+            the same town where Mr Beast is. Pretty nifty.
+          </p>
+        </div>
+      </section>
+
+      <section className="mb-8 max-w-[500px] text-left">
+        <p className={sectionLabel}>Off the clock</p>
+        <p className={bodyText}>
+          I play chess, poker, and mahjong weekly, and bridge anytime I can
+          find 3 people to play with. My two brilliant siblings are studying
+          neuroprothetics and cyberlaw. I&apos;m fluent in Mandarin, get the
+          WSJ delivered and read it on paper, and am rather obsessive about my
+          coffee morning routine.
+        </p>
+      </section>
+
+      <section className="max-w-[500px] text-left">
+        <p className={sectionLabel}>Why Pantone?</p>
+        <p className={bodyText}>
+          I recently watched <em>King of Color</em> and walked away inspired by
+          the creativity and courage it takes to build something the world
+          didn&apos;t know it needed. This page is a small tribute, pick a year
+          above and stand in its color. And check out my{" "}
+          <a
+            href="https://boxd.it/gKiZj"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border-b border-current"
+          >
+            letterboxd
+          </a>
+          .
+        </p>
+      </section>
+
+      <footer className="font-sans mt-auto flex justify-center gap-5 pb-2 pt-12 text-sm">
         <a
-          href="mailto:sasha@w-eye-ze.com"
-          className="px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base text-black rounded-lg hover:bg-black hover:text-white transition"
+          href="https://github.com/sashasurkin"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="border-b border-current pb-0.5"
         >
-          the mail one
+          Projects
         </a>
         <a
           href="https://x.com/sashasurk"
           target="_blank"
           rel="noopener noreferrer"
-          className="px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base text-black rounded-lg hover:bg-black hover:text-white transition"
+          className="border-b border-current pb-0.5"
         >
-          the bird one
+          Writing
         </a>
         <a
-          href="https://www.linkedin.com/in/janiesashasurkin"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base text-black rounded-lg hover:bg-black hover:text-white transition"
+          href="mailto:sasha@w-eye-ze.com"
+          className="border-b border-current pb-0.5"
         >
-          the professional one
+          Contact
         </a>
-        <a
-          href="https://github.com/sashasurkin"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base text-black rounded-lg hover:bg-black hover:text-white transition"
-        >
-          the project one
-        </a>
-      </div>
+      </footer>
     </main>
   );
 }
