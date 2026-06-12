@@ -38,7 +38,8 @@ export default function Home() {
         transition: "background 0.5s ease, color 0.5s ease",
       }}
     >
-      <div className="font-sans mb-10 flex flex-wrap items-center gap-2.5">
+      <div className="mx-auto flex w-full max-w-[640px] flex-1 flex-col">
+      <div className="font-sans mb-10 flex flex-wrap items-center gap-2.5 pt-6 sm:pt-14">
         <button
           aria-label="Previous year"
           className={pillButton}
@@ -153,7 +154,7 @@ export default function Home() {
         </p>
       </section>
 
-      <footer className="font-sans mt-auto flex justify-center gap-5 pb-2 pt-12 text-sm">
+      <footer className="font-sans mt-auto flex justify-center gap-5 pb-2 pt-16 text-sm">
         <a
           href="https://github.com/sashasurkin"
           target="_blank"
@@ -177,6 +178,7 @@ export default function Home() {
           Contact
         </a>
       </footer>
+      </div>
     </main>
   );
 }
