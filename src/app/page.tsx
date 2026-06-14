@@ -187,7 +187,7 @@ export default function Home() {
         <p className={bodyText}>
           I play chess, poker, and mahjong weekly, and bridge anytime I can
           find a game. My two brilliant siblings are studying
-          neuroprothetics and cyberlaw. I&apos;m fluent in Mandarin, get the
+          neuroprosthetics and cyberlaw. I&apos;m fluent in Mandarin, get the
           WSJ delivered and read it on paper, and am rather obsessive about my
           coffee morning routine.
         </p>
