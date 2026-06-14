@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   COLOR_OF_THE_YEAR,
   DEFAULT_YEAR,
@@ -83,6 +83,12 @@ function ChipStory({
 export default function Home() {
   const [year, setYear] = useState(DEFAULT_YEAR);
   const [cardOpen, setCardOpen] = useState(false);
+  const [revealed, setRevealed] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setRevealed(true), 1500);
+    return () => clearTimeout(timer);
+  }, []);
   const colors = COLOR_OF_THE_YEAR[year];
   const idx = YEARS.indexOf(year);
 
@@ -134,6 +140,11 @@ export default function Home() {
         Hello! I&apos;m Sasha, welcome to my digital front porch.
       </h1>
 
+      <div
+        className={`transition-opacity duration-[900ms] ease-out ${
+          revealed ? "opacity-100" : "opacity-0"
+        }`}
+      >
       <div className={`max-w-[500px] text-left ${bodyText}`}>
         <p className="mb-4">
           I&apos;m an inventor and founder. I work at{" "}
@@ -192,6 +203,7 @@ export default function Home() {
           coffee morning routine.
         </p>
       </section>
+      </div>
 
       <button
         aria-label="Open the Why Pantone story"
